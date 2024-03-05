@@ -28,7 +28,7 @@ user = {
     "History": [],
     "Password" : "unknown"
 }
-##########################################################
+#########################################################
 #constants
 DELAYTIME = 0.145665432
 #########################################################
@@ -41,7 +41,7 @@ print("Welcome, to Terminal+!")
 time.sleep(DELAYTIME)
 now = datetime.datetime.now(timezone('US/Eastern'))
 #sets timezone
-print(now.strftime("Date:"+"%B %d, %Y"+" Time:"+" %I:%M %p"+"\n"))
+print(now.strftime("Date: "+"%B %d, %Y"+" Time:"+" %I:%M %p"+"\n"))
 #prints date and time
 time.sleep(DELAYTIME)
 # entername
@@ -77,12 +77,12 @@ else:
         print("Passwords do not match!")
         Functions.cmdExit()
 # saves user
-##########################################################
+#########################################################
 while 1:
   time.sleep(DELAYTIME)
   request = input("What would you like to do?")
 #checks for request
-##########################################################
+#########################################################
   match request.lower():
     case "help":
       Functions.cmdHelp()
@@ -96,9 +96,11 @@ while 1:
       Functions.cmdExit()
     case "echo":
       Functions.cmdEcho(input)
+    case "wait":
+      Functions.cmdWait(input)
 #All other functions above this line
     case _: 
       print("Invalid command")
-##########################################################
+#########################################################
   user['History'].append(request.lower())
   saveuser()
