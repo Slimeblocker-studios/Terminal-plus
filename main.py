@@ -98,6 +98,8 @@ while 1:
       Functions.cmdEcho(input)
     case "wait":
       Functions.cmdWait(input)
+    case "touch":
+      Functions.cmdTouch()
 #All other functions above this line
     case _: 
       print("Invalid command")
