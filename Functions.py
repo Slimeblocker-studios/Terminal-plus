@@ -5,6 +5,7 @@ import os
 import os.path
 import sys
 import time
+import re
 
 from pytz import timezone
 
@@ -21,6 +22,7 @@ def cmdHelp():
   print("5. exit")
   print("6. echo")
   print("7. wait")
+  print("8. touch")
 #end of help
 def cmdTime():
   '''current time and date'''
@@ -42,6 +44,7 @@ def cmdExit():
   '''This function exits the program'''
   
   print("See you later!")
+  time.sleep(0.5)
   sys.exit()
 #end of quit
 def cmdEcho(input):
@@ -57,3 +60,22 @@ def cmdWait(input):
   cmdwaittime = input()
   time.sleep(cmdwaittime)
 #end of wait
+import os
+
+def cmdTouch():
+  """Creates an empty file with the specified name."""
+  """Thank you for the help, @Benjamin """
+  """I'm sorry for there being no editor yet"""
+  
+  while True:
+      try:
+          filename = input("Enter the filename: ")
+          filename = re.sub(r'\W+', '', filename) + '.txt'  # Using re's sub method for string sanitization
+          with open(filename, 'w'):
+              pass
+          break
+      except FileNotFoundError:
+          print("Invalid filename. Please try again.")
+      except FileExistsError:
+          print("File already exists. Please choose a different filename.")
+
